@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('ngAutoCompleteApi') ngAutocompleteApi;
   @ViewChild('userAuto') userAuto;
 
-  public users$: Observable<any>;
+  private users$: Observable<any>;
   userInitialValue = null;
 
   items;

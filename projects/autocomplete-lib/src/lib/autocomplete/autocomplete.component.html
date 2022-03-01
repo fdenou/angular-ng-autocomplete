@@ -1,11 +1,8 @@
-<div class="autocomplete-container" aria-owns="suggestions suggestions-history" [attr.aria-expanded]="isOpen"
+<div class="autocomplete-container"
      [ngClass]="{ 'active': isOpen}">
   <div class="input-container">
     <input #searchInput
            type="text"
-           attr.aria-label="{{placeholder}}"
-           aria-autocomplete="list"
-           role="combobox"
            placeholder={{placeholder}}
            [(ngModel)]=query
            (input)="onChange($event)"
@@ -14,7 +11,7 @@
            [disabled]="disabled"
            autocomplete="off">
     <div class="x" *ngIf="query && !isLoading && !disabled" (click)="remove($event)">
-      <i class="material-icons close" aria-label="Close"></i>
+      <i class="material-icons">close</i>
     </div>
     <!--Loading mask-->
     <div class="sk-fading-circle" *ngIf="isLoading">
@@ -34,7 +31,7 @@
   </div>
 
   <!--FilteredList items-->
-  <div class="suggestions-container" id="suggestions" role="listbox"
+  <div class="suggestions-container"
        [ngClass]="{ 'is-hidden': isHistoryListVisible, 'is-visible': !isHistoryListVisible}">
     <!--FilteredList heading-->
     <div class="heading" *ngIf="filteredList.length > 0 && heading">
@@ -62,13 +59,13 @@
   </div>
 
   <!--HistoryList items-->
-  <div class="suggestions-container" id="suggestions-history" role="listbox"
+  <div class="suggestions-container"
        [ngClass]="{ 'is-hidden': !isHistoryListVisible, 'is-visible': isHistoryListVisible}">
     <!--HistoryList heading-->
     <div class="heading" *ngIf="historyList.length > 0 && historyHeading">
       <div class="text">{{historyHeading}}</div>
       <div class="x" (click)="resetHistoryList($event)">
-        <i class="material-icons delete" aria-label="Delete"></i>
+        <i class="material-icons">delete</i>
       </div>
     </div>
 
@@ -87,7 +84,7 @@
           </ng-container>
         </div>
         <div class="x" (click)="removeHistoryItem(idx, $event)">
-          <i class="material-icons close" aria-label="Close"></i>
+          <i class="material-icons">close</i>
         </div>
       </li>
     </ul>
